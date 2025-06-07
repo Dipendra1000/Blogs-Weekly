@@ -54,10 +54,10 @@ const UserProfile = () => {
         <div className="max-w-xl mx-auto p-4 mt-10">
             <div className="bg-white shadow rounded-lg p-6">
                 <div className="flex items-center space-x-4">
-                    {user.img ? (<img
+                    {user.avatar ? (<img
                         src={user.avatar}
                         alt="Avatar"
-                        className="w-20 h-20 rounded-full"
+                        className="w-20 h-20 rounded-full object-cover"
                         />) : (<FaUserCircle className='size-20' />)}
 
                     {editing ? (
