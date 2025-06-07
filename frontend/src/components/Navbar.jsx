@@ -1,5 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import SignupButton from './SignupButton';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
+import UserProfileButton from './UserProfileButton'
 import { Link, NavLink } from 'react-router-dom'
 import { IoSearch } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
@@ -71,6 +75,10 @@ const Navbar = () => {
           <NavLink className={({isActive})=> isActive ? "bg-gray-700 py-[4px] px-[10px] rounded-full" : ""} to='/' ><li className="scale-100 hover:scale-[90%] transition duration-100 ease-out">Home</li></NavLink>
           <NavLink className={({isActive})=> isActive ? "bg-gray-700 py-[4px] px-[10px] rounded-full" : ""} to='/about' ><li className="scale-100 hover:scale-[90%] transition duration-100 ease-out">About Us</li></NavLink>
           <NavLink className={({isActive})=> isActive ? "bg-gray-700 py-[4px] px-[10px] rounded-full" : ""} to='/contact' ><li className="scale-100 hover:scale-[90%] transition duration-100 ease-out">Contact Us</li></NavLink>
+          <LoginButton />
+          <SignupButton />
+          <UserProfileButton />
+          <LogoutButton />
         </ul>
       </div>
     </nav>

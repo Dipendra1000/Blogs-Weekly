@@ -1,47 +1,37 @@
 import { useState } from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Signup from './pages/Signup'
+import Login from './pages/Login'
 import Blogs from './pages/Blogs'
-import BlogDetails from './components/BlogDetails'
+import UserProfile from './pages/UserProfile'
+import BlogDetails from './pages/BlogDetails'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import CategoryPage from './pages/CategoryPage'
 import AuthorBlogs from './pages/AuthorBlogs'
 import Footer from './components/Footer'
-import './App.css'
+// import './App.css'
 
 function App() {
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <><Navbar /><Blogs /><Footer /></>,
-    },
-    {
-      path:"/blog/:slug",
-      element: <><Navbar /><BlogDetails /><Footer /></>,
-    },
-    {
-      path:"/about",
-      element: <><Navbar /><About /><Footer /></>,
-    },
-    {
-      path:"/contact",
-      element: <><Navbar /><Contact /><Footer /></>,
-    },
-    {
-      path:"/category/:categoryName",
-      element: <><Navbar /><CategoryPage /><Footer /></>,
-    },
-    {
-      path:"/author/:authorName",
-      element: <><Navbar /><AuthorBlogs /><Footer /></>,
-    },
-  ])
-
   return (
     <>
-      <RouterProvider router={router} />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Blogs />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/blog/:slug" element={<BlogDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/category/:categoryName" element={<CategoryPage />} />
+          <Route path="/author/:authorName" element={<AuthorBlogs />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   )
 }
